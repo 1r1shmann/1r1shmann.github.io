@@ -1,0 +1,64 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');*/
+
+body {
+    margin: 0px;
+    background-color: #F8F8F8;
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background: fixed #fff url('../images/flowes_pattern_mobile_3.jpg');
+    /*background-size: cover;*/
+    /*font-family: 'Noto Serif Display', serif;*/
+    font-weight: 300;
+    font-size: 30px;
+}
+
+
+
+.label {
+    display: flex;
+    max-width: 550px;
+    padding: 10px 20px;
+    margin: 20px;
+    width: 100%;
+    background-color: #b30000CC;
+    color: #FFF;
+    backdrop-filter: blur(5px);
+}
+
+.creator {
+    position: fixed;
+    bottom: 0px;
+    font-size: 12px;
+    font-weight: bold;
+    background: #fff;
+    width: calc(100% - 40px);
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.header {
+    position: fixed;
+    top: 0px;
+    font-size: 12px;
+    font-weight: bold;
+    background: #fff;
+    width: calc(100% - 40px);
+    text-align: center;
+    padding: 10px 20px;
+}
+.header > img {
+    max-width: 100%;
+    max-height: 60px;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        background: fixed #fff url('../images/flowes_pattern_mobile_3.jpg');
+        /*        background: url('../images/mobile.jpeg');
+                background-size: 100vh;
+                background-position-y: 100%;*/
+    }
+}
