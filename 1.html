@@ -149,6 +149,7 @@
       display: none;
       width: 100%;
       margin-top: 20px;
+      border-radius: 10px;
     }
 
     .snowflake {
@@ -183,6 +184,32 @@
 
       100% {
         transform: rotate(360deg);
+      }
+    }
+
+    /* Добавим медиа-запросы для мобильных устройств */
+    @media (max-width: 767px) {
+      .card {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+      }
+
+      .gift {
+        width: 80px;
+      }
+
+      .message-container {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .flower {
+        width: 100px;
+      }
+
+      #audio {
+        width: 100%;
       }
     }
   </style>
