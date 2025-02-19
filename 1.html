@@ -35,13 +35,15 @@
 
     .creator {
       position: fixed;
-      bottom: 0px;
+      bottom: 0;
       font-size: 12px;
       font-weight: bold;
       background: #fff;
       width: 100%;
       text-align: center;
       padding: 10px 20px;
+      box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2); /* Добавляем тень для визуального отделения */
+      z-index: 10; /* Устанавливаем выше других элементов */
     }
 
     .overlay {
