@@ -126,7 +126,7 @@
                     hours: 'часов',
                     minutes: 'минут',
                     seconds: 'секунд',
-                    pluralLetter: 's'
+                    pluralLetter: ''
                 },
                 plural: true,
                 inline: false,
