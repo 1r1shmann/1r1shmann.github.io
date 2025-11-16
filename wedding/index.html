@@ -234,23 +234,33 @@
 					</div>
 				</div>
 				<div class="row animate-box">
-					<div class="col-md-10 col-md-offset-1">
-							<div class="col-md-4 col-sm-4">
-								<div class="form-group">
-									<label for="name" class="sr-only">Имя</label>
-									<input type="name" class="form-control" id="name" placeholder="Введите ваше имя">
-								</div>
+					<div class="col-md-10 col-md-offset-1" id="formInvite">
+						<div class="col-md-4 col-sm-4">
+							<div class="form-group">
+								<label for="name" class="sr-only">Имя</label>
+								<input type="name" class="form-control" id="name" placeholder="Введите ваше имя">
 							</div>
-							<div class="col-md-4 col-sm-4">
-								<button type="button" class="btn btn-default btn-block btn-submit" name="will_come" data-variant="Приду">Я приду</button>
-							</div>
-							<div class="col-md-4 col-sm-4">
-								<button type="button" class="btn btn-default btn-block btn-submit" name="will_come" data-variant="Не приду">Я не приду</button>
-							</div>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<button type="button" class="btn btn-default btn-block btn-submit" name="will_come" data-variant="Приду">Я приду</button>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<button type="button" class="btn btn-default btn-block btn-submit" name="will_come" data-variant="Не приду">Я не приду</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		
+		<div id="loadingModal" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content text-center" style="padding: 20px;">
+					<div class="loader"></div>
+					<p>Пожалуйста, подождите, записываем ответ...</p>
+				</div>
+			</div>
+		</div>
+
 
 		<footer id="fh5co-footer" role="contentinfo">
 			<div class="container">
@@ -298,7 +308,6 @@
 	<script>
 	$(document).ready(function() {
 		var d = new Date(new Date(2025, 11, 10, 2, 30));
-		console.log(new Date(2025, 11, 20, 12, 00).toString());
 
 		// default example
 		simplyCountdown('.simply-countdown-one', {
@@ -315,15 +324,29 @@
 			enableUtc: false
 		});
 		
+		/*
+		let submitted = localStorage.getItem("formSubmitted");
+		if (submitted) {
+        let data = JSON.parse(submitted);
+			$("#formInvite").html('<div class="alert alert-success text-center">Спасибо, ' + data.name + ', ваш выбор "' + data.will_come + '" был записан.<br>Спасибо за ваш ответ!</div>');
+		}
+		*/
+		
 		$('.btn-submit').click(function() {
+			$('#loadingModal').modal('show');
+		
 			let scriptUrl = 'https://script.google.com/macros/s/AKfycbzbgA2ep25UZTH3fKGrYnteMT3tF0Mq5JaeGflc9_pvoefM3enPoKVozIgvnc_HJ5E3yQ/exec';
 			let selectedVariant = $(this).data('variant');
 			let name = $('#name').val().trim();
 			
 			if (!name) {
-			  alert('Пожалуйста, введите ваше имя');
-			  return;
+				alert('Пожалуйста, введите ваше имя');
+				return;
 			}
+			
+			//блок
+			$(".btn-submit").prop("disabled", true);
+			$("#name").prop("disabled", true);
 			
 			let formData = {
 				name: name,
@@ -332,20 +355,29 @@
 			
 			$.ajax({
 				url: scriptUrl,
-				type: 'POST',
-				data: JSON.stringify(formData),
-				contentType: 'application/json',
-				dataType: 'json',
+				type: "POST",
+				data: {
+					name: name,
+					will_come: selectedVariant
+				},
 				success: function(response) {
-					if (response.status === 'success') {
-						alert('Спасибо! Ваш ответ записан.');
-						$('#name').val('');
+					console.log(response);          // ← ТУТ БУДЕТ JSON
+					if (response.status === "success") {
+						$('#loadingModal').modal('hide');
+						<!-- localStorage.setItem("formSubmitted", JSON.stringify(formData)); -->
+						$("#formInvite").html('<div class="alert alert-success text-center">Спасибо, <b>' + name + '</b>, ваш выбор <b>"' + selectedVariant + '"</b> был записан.<br>Спасибо за ваш ответ!</div>');
+
 					} else {
-						alert('Ошибка: ' + response.message, 'error');
+						$('#loadingModal').modal('hide');
+						alert("Ошибка: " + response.message);
+						$(".btn-submit").prop("disabled", false);
+						$("#name").prop("disabled", false);
 					}
 				},
 				error: function(xhr, status, error) {
-					alert('Ошибка соединения: ' + error, 'error');
+					console.error(xhr.responseText);
+					$('#loadingModal').modal('hide');
+					alert("Ошибка соединения: " + error);
 				}
 			});
 			
@@ -369,4 +401,3 @@
 
 	</body>
 </html>
-
