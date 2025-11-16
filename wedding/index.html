@@ -341,11 +341,11 @@
 						alert('Спасибо! Ваш ответ записан.');
 						$('#name').val('');
 					} else {
-						showMessage('Ошибка: ' + response.message, 'error');
+						alert('Ошибка: ' + response.message, 'error');
 					}
 				},
 				error: function(xhr, status, error) {
-					showMessage('Ошибка соединения: ' + error, 'error');
+					alert('Ошибка соединения: ' + error, 'error');
 				}
 			});
 			
