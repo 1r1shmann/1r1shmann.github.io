@@ -235,20 +235,18 @@
 				</div>
 				<div class="row animate-box">
 					<div class="col-md-10 col-md-offset-1">
-						<form class="form-inline">
 							<div class="col-md-4 col-sm-4">
 								<div class="form-group">
 									<label for="name" class="sr-only">Имя</label>
-									<input type="name" class="form-control" id="name" placeholder="Имя">
+									<input type="name" class="form-control" id="name" placeholder="Введите ваше имя">
 								</div>
 							</div>
 							<div class="col-md-4 col-sm-4">
-								<button type="submit" class="btn btn-default btn-block">Я приду</button>
+								<button type="button" class="btn btn-default btn-block btn-submit" name="will_come" data-variant="Приду">Я приду</button>
 							</div>
 							<div class="col-md-4 col-sm-4">
-								<button type="submit" class="btn btn-default btn-block">Я не приду</button>
+								<button type="button" class="btn btn-default btn-block btn-submit" name="will_come" data-variant="Не приду">Я не приду</button>
 							</div>
-						</form>
 					</div>
 				</div>
 			</div>
@@ -298,23 +296,75 @@
 	<script src="js/main.js"></script>
 
 	<script>
-    var d = new Date(new Date(2025, 11, 10, 2, 30));
-	console.log(new Date(2025, 11, 20, 12, 00).toString());
+	$(document).ready(function() {
+		var d = new Date(new Date(2025, 11, 10, 2, 30));
+		console.log(new Date(2025, 11, 20, 12, 00).toString());
 
-    // default example
-    simplyCountdown('.simply-countdown-one', {
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate()
-    });
+		// default example
+		simplyCountdown('.simply-countdown-one', {
+			year: d.getFullYear(),
+			month: d.getMonth() + 1,
+			day: d.getDate()
+		});
 
-    //jQuery example
-    $('#simply-countdown-losange').simplyCountdown({
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate(),
-        enableUtc: false
-    });
+		//jQuery example
+		$('#simply-countdown-losange').simplyCountdown({
+			year: d.getFullYear(),
+			month: d.getMonth() + 1,
+			day: d.getDate(),
+			enableUtc: false
+		});
+		
+		$('.btn-submit').click(function() {
+			let scriptUrl = 'https://script.google.com/macros/s/AKfycbzbgA2ep25UZTH3fKGrYnteMT3tF0Mq5JaeGflc9_pvoefM3enPoKVozIgvnc_HJ5E3yQ/exec';
+			let selectedVariant = $(this).data('variant');
+			let name = $('#name').val().trim();
+			
+			if (!name) {
+			  alert('Пожалуйста, введите ваше имя');
+			  return;
+			}
+			
+			let formData = {
+				name: name,
+				will_come: selectedVariant
+			};
+			
+			$.ajax({
+				url: scriptUrl,
+				type: 'POST',
+				data: JSON.stringify(formData),
+				contentType: 'application/json',
+				dataType: 'json',
+				success: function(response) {
+					if (response.status === 'success') {
+						alert('Спасибо! Ваш ответ записан.');
+						$('#name').val('');
+					} else {
+						showMessage('Ошибка: ' + response.message, 'error');
+					}
+				},
+				error: function(xhr, status, error) {
+					showMessage('Ошибка соединения: ' + error, 'error');
+				}
+			});
+			
+		});
+		
+		$('a[href^="#"]').on('click', function(e) {
+			e.preventDefault();
+			
+			var target = $(this).attr('href');
+			
+			if (target !== '#') {
+				$('html, body').animate({
+					scrollTop: $(target).offset().top - 50
+				}, 800);
+			}
+		});
+		
+	});
+    
 </script>
 
 	</body>
