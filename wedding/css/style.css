@@ -1840,4 +1840,10 @@ form label {
   opacity: 0;
 }
 
+.btn-address {
+  white-space: normal !important; /* разрешаем перенос */
+  line-height: 1.4;               /* чтобы строки выглядели аккуратно */
+  padding: 8px 12px;              /* чуть удобнее для многострочной */
+}
+
 /*# sourceMappingURL=style.css.map */
