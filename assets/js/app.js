@@ -68,35 +68,61 @@ const songs = [
     "assets/music/volodya-angel-8-marta.mp3"
 ];
 
+// Перемешиваем массив
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+// Копируем и перемешиваем массивы сообщений и песен
+let shuffledMessages = shuffle([...messages]);
+let shuffledSongs = shuffle([...songs]);
+
+let msgIndex = 0;
+let songIndex = 0;
+
 function showMessage() {
-    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-    const randomSong = songs[Math.floor(Math.random() * songs.length)];
+    const randomMessage = shuffledMessages[msgIndex++ % shuffledMessages.length];
+    const randomSong = shuffledSongs[songIndex++ % shuffledSongs.length];
+
     const card = document.getElementById('card');
     card.innerHTML = `
-                  <div class="message-container">
-                      <div class="hidden-text" id="message"></div>
-                  </div>
-                  <div class="flower-container">
-                      <img src="assets/images/flower-basket.png" class="flower" alt="Цветок">
-                  </div>
-                  <audio id="audio" controls>
-                      <source src="${randomSong}" type="audio/mpeg">
-                      Ваш браузер не поддерживает аудиоплеер.
-                  </audio>
-              `;
+        <div class="message-container">
+            <div class="hidden-text" id="message"></div>
+        </div>
+        <div class="flower-container">
+            <img src="assets/images/flower-basket.png" class="flower" alt="Цветок">
+        </div>
+        <audio id="audio" controls>
+            <source src="${randomSong}" type="audio/mpeg">
+            Ваш браузер не поддерживает аудиоплеер.
+        </audio>
+    `;
+
+    // Плавная печать текста
     let i = 0;
+    const messageEl = document.getElementById('message');
+    messageEl.style.borderRight = '2px solid black';
 
     function typeWriter() {
         if (i < randomMessage.length) {
-            document.getElementById('message').innerHTML += randomMessage.charAt(i);
+            messageEl.innerHTML += randomMessage.charAt(i);
             i++;
             setTimeout(typeWriter, 100);
         } else {
-            document.getElementById('message').style.borderRight = 'none';
+            messageEl.style.borderRight = 'none';
         }
     }
     typeWriter();
+
+    // Проигрываем аудио
     const audio = document.getElementById('audio');
     audio.style.display = 'block';
-    audio.play();
+    audio.play().catch(() => {
+        // Если автоплей заблокирован, пользователь должен нажать play
+        console.log('Нажмите кнопку play для воспроизведения музыки');
+    });
 }
