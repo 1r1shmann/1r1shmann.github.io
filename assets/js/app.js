@@ -49,6 +49,7 @@ const messages = [
     "С Международным женским днем! Пусть каждый твой день будет прекрасным и незабываемым!"
 ];
 const songs = [
+    "assets/music/Aleksandr-Dvorovoj-8-marta.mp3",
     "assets/music/bogdan-shuvalov-8-marta.mp3",
     "assets/music/denis-vajner-8-marta.mp3",
     "assets/music/evgenij-konstantinov-8-marta.mp3",
@@ -58,14 +59,16 @@ const songs = [
     "assets/music/gradusy-s-8-marta.mp3",
     "assets/music/grishine-8-marta.mp3",
     "assets/music/hit-sindikat-8-marta.mp3",
-    "assets/music/kangi-vozmi-serdce-moyo.mp3",
+    "assets/music/medlyachok.mp3",
+    "assets/music/Mihail-SHufutinskij-Mardzhandzha.mp3",
     "assets/music/nikolaj-baskov-ya-budu-ruki-tvoi-celovat.mp3",
     "assets/music/rajburg-yan-darite-zhenshchinam-cvety.mp3",
     "assets/music/ruki-vverh-dobroj-nezhnoj-laskovoj.mp3",
     "assets/music/sergej-rudov-8-marta.mp3",
+    "assets/music/serov_lyublyu_tebya_do_sljoz.mp3",
     "assets/music/soso-pavliashvili-dlya-tebya.mp3",
     "assets/music/stas-mihajlov-vsyo-dlya-tebya.mp3",
-    "assets/music/volodya-angel-8-marta.mp3"
+    "assets/music/volodya-angel-8-marta.mp3",
 ];
 
 // Перемешиваем массив
