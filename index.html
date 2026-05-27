@@ -3,12 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1r1shmann</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>1r1shmann • Systems Engineer</title>
 
 <style>
+
+:root{
+    --bg:#050816;
+    --card:rgba(255,255,255,.06);
+    --border:rgba(255,255,255,.10);
+    --text:#ffffff;
+    --muted:#94a3b8;
+    --accent:#00d4ff;
+    --accent2:#7c3aed;
+}
+
 *{
     margin:0;
     padding:0;
@@ -16,203 +24,357 @@
 }
 
 body{
-    min-height:100vh;
-    overflow:auto;
-    font-family:system-ui,sans-serif;
-    background:#050816;
-    color:white;
+    background:var(--bg);
+    color:var(--text);
+    font-family:system-ui, sans-serif;
+    overflow-x:hidden;
 }
 
-canvas{
+/* background */
+.bg{
     position:fixed;
     inset:0;
     z-index:0;
 }
 
+.orb{
+    position:absolute;
+    width:550px;
+    height:550px;
+    filter:blur(140px);
+    opacity:.22;
+    border-radius:50%;
+    animation:float 14s ease-in-out infinite;
+}
+
+.orb1{
+    background:var(--accent);
+    top:-160px;
+    left:-160px;
+}
+
+.orb2{
+    background:var(--accent2);
+    bottom:-160px;
+    right:-160px;
+    animation-delay:-7s;
+}
+
+@keyframes float{
+    0%,100%{transform:translate(0,0);}
+    50%{transform:translate(40px,-30px);}
+}
+
+/* layout */
 .content{
     position:relative;
     z-index:2;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    padding:30px;
+    padding:60px 20px 100px;
+}
+
+/* HERO */
+.hero{
+    max-width:950px;
+    margin:auto;
 }
 
 .card{
-    width:min(900px,100%);
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:28px;
+    padding:60px 30px;
     text-align:center;
-    backdrop-filter:blur(15px);
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:30px;
-    padding:50px 30px;
+    backdrop-filter:blur(18px);
 }
 
 .avatar{
     width:120px;
     height:120px;
-    border-radius:50%;
     margin:auto;
-    background:linear-gradient(135deg,#00d4ff,#7c3aed);
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
     display:flex;
     align-items:center;
     justify-content:center;
     font-size:48px;
-    font-weight:700;
+    font-weight:800;
 }
 
 h1{
-    margin-top:20px;
-    font-size:clamp(2rem,7vw,5rem);
+    margin-top:18px;
+    font-size:3rem;
 }
 
 .subtitle{
-    color:#94a3b8;
-    margin-top:15px;
+    margin-top:10px;
+    color:var(--muted);
     font-size:1.1rem;
 }
 
-.typing{
-    color:#00d4ff;
+.tagline{
     margin-top:25px;
     font-family:monospace;
-    font-size:1.2rem;
+    color:var(--accent);
 }
 
-.links{
-    margin-top:40px;
-    display:flex;
-    gap:15px;
-    justify-content:center;
-    flex-wrap:wrap;
+/* SECTIONS */
+.section{
+    max-width:1100px;
+    margin:70px auto 0;
 }
 
-.btn{
-    text-decoration:none;
-    color:white;
-    padding:14px 26px;
-    border-radius:14px;
-    background:rgba(255,255,255,.08);
-    transition:.25s;
-}
-
-.btn:hover{
-    transform:translateY(-3px);
-    background:rgba(255,255,255,.15);
-}
-
-/* ===== PROJECTS ===== */
-
-.projects{
-    width:min(1000px,100%);
-    margin-top:60px;
-    padding:20px;
-}
-
-.projects h2{
+.title{
     text-align:center;
-    margin-bottom:20px;
     font-size:2rem;
+    margin-bottom:25px;
 }
 
+/* CASE CARD */
+.case{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
+    padding:25px;
+    margin-bottom:18px;
+}
+
+.case-title{
+    font-size:1.3rem;
+    color:var(--accent);
+    font-weight:700;
+}
+
+.case-sub{
+    color:var(--muted);
+    margin-top:6px;
+}
+
+/* FLOW */
+.flow{
+    margin-top:15px;
+    padding:15px;
+    border-left:2px solid var(--accent);
+    color:#cbd5e1;
+    font-family:monospace;
+    line-height:1.6;
+}
+
+/* BADGES */
+.badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:12px;
+}
+
+.badge{
+    background:rgba(255,255,255,.08);
+    padding:6px 10px;
+    border-radius:999px;
+    font-size:.8rem;
+}
+
+/* IMPACT */
+.impact{
+    margin-top:12px;
+    color:#86efac;
+    font-size:.9rem;
+}
+
+/* PROJECTS */
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:15px;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:18px;
 }
 
 .project{
     background:rgba(255,255,255,.05);
     border:1px solid rgba(255,255,255,.08);
-    border-radius:16px;
-    padding:16px;
-    transition:.2s;
+    border-radius:18px;
+    padding:20px;
 }
 
-.project:hover{
-    transform:translateY(-5px);
-    background:rgba(255,255,255,.08);
-}
-
-.project a{
-    color:#00d4ff;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-.desc{
-    margin-top:8px;
-    font-size:.9rem;
-    color:#94a3b8;
+.project-title{
+    color:var(--accent);
+    font-weight:700;
 }
 
 .meta{
-    margin-top:8px;
-    font-size:.75rem;
+    margin-top:10px;
+    font-size:.8rem;
     color:#64748b;
 }
 
-/* footer */
-
+/* FOOTER */
 .footer{
-    margin-top:40px;
-    color:#64748b;
-    font-size:.9rem;
     text-align:center;
-    padding-bottom:40px;
+    margin-top:80px;
+    color:#64748b;
 }
+
 </style>
 </head>
 
 <body>
 
-<canvas id="bg"></canvas>
+<div class="bg">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+</div>
 
 <div class="content">
 
-    <!-- HERO -->
+<!-- HERO -->
+<section class="hero">
+
     <div class="card">
 
         <div class="avatar">I</div>
 
         <h1>1r1shmann</h1>
 
-        <p class="subtitle">
-            Backend Developer • PHP • Laravel • PostgreSQL
-        </p>
-
-        <div class="typing">
-            > building things that actually work_
+        <div class="subtitle">
+            Systems Engineer • PHP / Yii / Yii2 • Enterprise & Government Systems
         </div>
 
-        <div class="links">
-            <a class="btn" href="https://github.com/1r1shmann">
-                GitHub
-            </a>
-
-            <a class="btn" href="mailto:hello@example.com">
-                Contact
-            </a>
+        <div class="tagline">
+            $ designing backend systems that survive production load
         </div>
 
     </div>
 
-    <!-- PROJECTS -->
-    <div class="projects">
-        <h2>My Projects</h2>
-        <div class="grid" id="repos"></div>
+</section>
+
+<!-- CASE STUDY 1 -->
+<section class="section">
+
+    <div class="title">Pinned Systems</div>
+
+    <div class="case">
+
+        <div class="case-title">Medical Information System (МИС)</div>
+        <div class="case-sub">Enterprise healthcare platform (hospitals + clinics)</div>
+
+        <div class="flow">
+User → Doctor UI → PHP Backend (Yii2) → DB (PostgreSQL)
+        ↓
+Prescription workflow → RBAC validation → Document generation (PDF/DOCX)
+        ↓
+SOAP/REST → Federal medical registry (СЭМД exchange)
+        </div>
+
+        <div class="badges">
+            <div class="badge">Yii2</div>
+            <div class="badge">SOAP</div>
+            <div class="badge">PostgreSQL</div>
+            <div class="badge">RBAC</div>
+        </div>
+
+        <div class="impact">
+            ✔ Real-world healthcare workflow automation<br>
+            ✔ Government integration via SOAP APIs
+        </div>
+
     </div>
 
-    <div class="footer">
-        © 2026 • Hosted on GitHub Pages
+    <div class="case">
+
+        <div class="case-title">Digital Signature Platform (CryptoPro / GOST)</div>
+        <div class="case-sub">Secure document signing + validation system</div>
+
+        <div class="flow">
+File/Data → PHP Backend → CLI CryptoPro (Windows/Linux)
+    ↓
+Signature generation → DB storage
+    ↓
+Validation pipeline → certificate parsing → audit log
+    ↓
+Result → medical system integration (СЭМД)
+        </div>
+
+        <div class="badges">
+            <div class="badge">CryptoPro</div>
+            <div class="badge">GOST</div>
+            <div class="badge">CLI integration</div>
+        </div>
+
+        <div class="impact">
+            ✔ Electronic signature lifecycle implementation<br>
+            ✔ Cross-platform CLI execution pipeline
+        </div>
+
     </div>
+
+    <div class="case">
+
+        <div class="case-title">Integration & Processing Engine</div>
+        <div class="case-sub">Batch + API + cron-based backend processing</div>
+
+        <div class="flow">
+DB queue (table locking) → cron worker → batch processing (50 rows)
+    ↓
+External SOAP/REST systems → XML exchange → response parsing
+    ↓
+Status update → DB commit
+        </div>
+
+        <div class="badges">
+            <div class="badge">Cron</div>
+            <div class="badge">SOAP</div>
+            <div class="badge">XML</div>
+            <div class="badge">SQL optimization</div>
+        </div>
+
+        <div class="impact">
+            ✔ Queue-like processing without message broker<br>
+            ✔ Integration layer for external enterprise systems
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ENGINEERING PROFILE -->
+<section class="section">
+
+    <div class="title">Engineering Profile</div>
+
+    <div class="case">
+
+        <div class="case-title">Core Expertise</div>
+
+        <div class="flow">
+- Legacy PHP systems (Yii / Yii2)
+- Monolithic enterprise architectures
+- SQL optimization (indexes, explain plans)
+- RBAC & access control systems
+- Document generation pipelines (PDF / DOCX)
+- Linux server deployment (LEMP / LAMP)
+- Manual deployment without containerization
+- Integration-heavy backend systems (SOAP / REST)
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+<section class="section">
+
+    <div class="title">GitHub Projects</div>
+
+    <div class="grid" id="repos"></div>
+
+</section>
+
+<div class="footer">
+    © 2026 • Systems Engineering Portfolio
+</div>
 
 </div>
 
 <script>
-/* ===== GitHub repos ===== */
 
 fetch("https://api.github.com/users/1r1shmann/repos")
 .then(r => r.json())
@@ -222,78 +384,28 @@ fetch("https://api.github.com/users/1r1shmann/repos")
 
     repos
         .filter(r => !r.fork)
-        .sort((a,b)=> new Date(b.updated_at)-new Date(a.updated_at))
+        .sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at))
         .forEach(repo => {
 
             const div = document.createElement("div");
+
             div.className = "project";
 
             div.innerHTML = `
-                <a href="https://1r1shmann.github.io/${repo.name}" target="_blank">
-                    ${repo.name}
-                </a>
-
-                <div class="desc">
-                    ${repo.description || "No description"}
-                </div>
+                <div class="project-title">${repo.name}</div>
 
                 <div class="meta">
-                    ⭐ ${repo.stargazers_count} • updated ${new Date(repo.updated_at).toLocaleDateString()}
+                    ⭐ ${repo.stargazers_count}
+                    • updated ${new Date(repo.updated_at).toLocaleDateString()}
                 </div>
             `;
 
             container.appendChild(div);
+
         });
+
 });
 
-
-/* ===== particles (твой код без изменений) ===== */
-
-const canvas = document.getElementById('bg');
-const ctx = canvas.getContext('2d');
-
-function resize(){
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
-}
-resize();
-addEventListener('resize', resize);
-
-const particles = [];
-
-for(let i=0;i<120;i++){
-    particles.push({
-        x:Math.random()*canvas.width,
-        y:Math.random()*canvas.height,
-        r:Math.random()*2+1,
-        dx:(Math.random()-.5)*0.4,
-        dy:(Math.random()-.5)*0.4
-    });
-}
-
-function animate(){
-
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-
-    particles.forEach(p=>{
-
-        p.x+=p.dx;
-        p.y+=p.dy;
-
-        if(p.x<0||p.x>canvas.width)p.dx*=-1;
-        if(p.y<0||p.y>canvas.height)p.dy*=-1;
-
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle='rgba(0,212,255,.8)';
-        ctx.fill();
-
-    });
-
-    requestAnimationFrame(animate);
-}
-
-animate();
 </script>
 
 </body>
