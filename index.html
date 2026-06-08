@@ -1,453 +1,427 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1r1shmann • Systems Engineer</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>1r1shmann • Systems Engineer</title>
 
-<style>
+        <style>
+            :root{
+                --bg:#050816;
+                --card:rgba(255,255,255,.06);
+                --border:rgba(255,255,255,.10);
+                --text:#ffffff;
+                --muted:#94a3b8;
+                --accent:#00d4ff;
+                --accent2:#7c3aed;
+            }
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+            }
+            body{
+                background:var(--bg);
+                color:var(--text);
+                font-family:system-ui, sans-serif;
+                overflow-x:hidden;
+            }
+            /* background */
+            .bg{
+                position:fixed;
+                inset:0;
+                z-index:0;
+            }
 
-:root{
-    --bg:#050816;
-    --card:rgba(255,255,255,.06);
-    --border:rgba(255,255,255,.10);
-    --text:#ffffff;
-    --muted:#94a3b8;
-    --accent:#00d4ff;
-    --accent2:#7c3aed;
-}
+            .orb{
+                position:absolute;
+                width:550px;
+                height:550px;
+                filter:blur(140px);
+                opacity:.22;
+                border-radius:50%;
+                animation:float 14s ease-in-out infinite;
+            }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+            .orb1{
+                background:var(--accent);
+                top:-160px;
+                left:-160px;
+            }
 
-body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:system-ui, sans-serif;
-    overflow-x:hidden;
-}
+            .orb2{
+                background:var(--accent2);
+                bottom:-160px;
+                right:-160px;
+                animation-delay:-7s;
+            }
 
-/* background */
-.bg{
-    position:fixed;
-    inset:0;
-    z-index:0;
-}
+            @keyframes float{
+                0%,100%{
+                    transform:translate(0,0);
+                }
+                50%{
+                    transform:translate(40px,-30px);
+                }
+            }
 
-.orb{
-    position:absolute;
-    width:550px;
-    height:550px;
-    filter:blur(140px);
-    opacity:.22;
-    border-radius:50%;
-    animation:float 14s ease-in-out infinite;
-}
+            /* layout */
+            .content{
+                position:relative;
+                z-index:2;
+                padding:60px 20px 100px;
+            }
 
-.orb1{
-    background:var(--accent);
-    top:-160px;
-    left:-160px;
-}
+            /* HERO */
+            .hero{
+                max-width:950px;
+                margin:auto;
+            }
 
-.orb2{
-    background:var(--accent2);
-    bottom:-160px;
-    right:-160px;
-    animation-delay:-7s;
-}
+            .card{
+                background:var(--card);
+                border:1px solid var(--border);
+                border-radius:28px;
+                padding:60px 30px;
+                text-align:center;
+                backdrop-filter:blur(18px);
+            }
 
-@keyframes float{
-    0%,100%{transform:translate(0,0);}
-    50%{transform:translate(40px,-30px);}
-}
+            .avatar{
+                width:120px;
+                height:120px;
+                margin:auto;
+                border-radius:50%;
+                background:linear-gradient(135deg,var(--accent),var(--accent2));
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                font-size:48px;
+                font-weight:800;
+            }
 
-/* layout */
-.content{
-    position:relative;
-    z-index:2;
-    padding:60px 20px 100px;
-}
+            h1{
+                margin-top:18px;
+                font-size:3rem;
+            }
 
-/* HERO */
-.hero{
-    max-width:950px;
-    margin:auto;
-}
+            .subtitle{
+                margin-top:10px;
+                color:var(--muted);
+                font-size:1.1rem;
+            }
 
-.card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:28px;
-    padding:60px 30px;
-    text-align:center;
-    backdrop-filter:blur(18px);
-}
+            .tagline{
+                margin-top:25px;
+                font-family:monospace;
+                color:var(--accent);
+            }
 
-.avatar{
-    width:120px;
-    height:120px;
-    margin:auto;
-    border-radius:50%;
-    background:linear-gradient(135deg,var(--accent),var(--accent2));
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:48px;
-    font-weight:800;
-}
+            /* SECTIONS */
+            .section{
+                max-width:1100px;
+                margin:70px auto 0;
+            }
 
-h1{
-    margin-top:18px;
-    font-size:3rem;
-}
+            .title{
+                text-align:center;
+                font-size:2rem;
+                margin-bottom:25px;
+            }
 
-.subtitle{
-    margin-top:10px;
-    color:var(--muted);
-    font-size:1.1rem;
-}
+            /* CASE CARD */
+            .case{
+                background:rgba(255,255,255,.04);
+                border:1px solid rgba(255,255,255,.08);
+                border-radius:22px;
+                padding:25px;
+                margin-bottom:18px;
+            }
 
-.tagline{
-    margin-top:25px;
-    font-family:monospace;
-    color:var(--accent);
-}
+            .case-title{
+                font-size:1.3rem;
+                color:var(--accent);
+                font-weight:700;
+            }
 
-/* SECTIONS */
-.section{
-    max-width:1100px;
-    margin:70px auto 0;
-}
+            .case-sub{
+                color:var(--muted);
+                margin-top:6px;
+            }
 
-.title{
-    text-align:center;
-    font-size:2rem;
-    margin-bottom:25px;
-}
+            /* FLOW */
+            .flow{
+                margin-top:15px;
+                padding:15px;
+                border-left:2px solid var(--accent);
+                color:#cbd5e1;
+                font-family:monospace;
+                line-height:1.6;
+            }
 
-/* CASE CARD */
-.case{
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:22px;
-    padding:25px;
-    margin-bottom:18px;
-}
+            /* BADGES */
+            .badges{
+                display:flex;
+                flex-wrap:wrap;
+                gap:8px;
+                margin-top:12px;
+            }
 
-.case-title{
-    font-size:1.3rem;
-    color:var(--accent);
-    font-weight:700;
-}
+            .badge{
+                background:rgba(255,255,255,.08);
+                padding:6px 10px;
+                border-radius:999px;
+                font-size:.8rem;
+            }
 
-.case-sub{
-    color:var(--muted);
-    margin-top:6px;
-}
+            /* IMPACT */
+            .impact{
+                margin-top:12px;
+                color:#86efac;
+                font-size:.9rem;
+            }
 
-/* FLOW */
-.flow{
-    margin-top:15px;
-    padding:15px;
-    border-left:2px solid var(--accent);
-    color:#cbd5e1;
-    font-family:monospace;
-    line-height:1.6;
-}
+            /* PROJECTS */
+            .grid{
+                display:grid;
+                grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+                gap:18px;
+            }
 
-/* BADGES */
-.badges{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-top:12px;
-}
+            .project{
+                background:rgba(255,255,255,.05);
+                border:1px solid rgba(255,255,255,.08);
+                border-radius:18px;
+                padding:20px;
+            }
 
-.badge{
-    background:rgba(255,255,255,.08);
-    padding:6px 10px;
-    border-radius:999px;
-    font-size:.8rem;
-}
+            .project-title{
+                color:var(--accent);
+                font-weight:700;
+            }
 
-/* IMPACT */
-.impact{
-    margin-top:12px;
-    color:#86efac;
-    font-size:.9rem;
-}
+            .meta{
+                margin-top:10px;
+                font-size:.8rem;
+                color:#64748b;
+            }
 
-/* PROJECTS */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:18px;
-}
+            .links{
+                display:flex;
+                gap:10px;
+                flex-wrap:wrap;
+            }
 
-.project{
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:18px;
-    padding:20px;
-}
+            .btn{
+                text-decoration:none;
+                color:white;
+                background:rgba(255,255,255,.08);
+                padding:10px 12px;
+                border-radius:12px;
+                font-size:.85rem;
+                transition:.2s;
+            }
 
-.project-title{
-    color:var(--accent);
-    font-weight:700;
-}
+            .btn:hover{
+                background:rgba(0,212,255,.15);
+                transform:translateY(-2px);
+            }
 
-.meta{
-    margin-top:10px;
-    font-size:.8rem;
-    color:#64748b;
-}
+            /* FOOTER */
+            .footer{
+                text-align:center;
+                margin-top:80px;
+                color:#64748b;
+            }
 
-.links{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-}
+        </style>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript">
+            (function (m, e, t, r, i, k, a) {
+                m[i] = m[i] || function () {
+                    (m[i].a = m[i].a || []).push(arguments)
+                };
+                m[i].l = 1 * new Date();
+                for (var j = 0; j < document.scripts.length; j++) {
+                    if (document.scripts[j].src === r) {
+                        return;
+                    }
+                }
+                k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r,
+                        a.parentNode.insertBefore(k, a)
+            })(window, document, 'script',
+                    'https://mc.webvisor.org/metrika/tag_ww.js?id=109721130', 'ym');
 
-.btn{
-    text-decoration:none;
-    color:white;
-    background:rgba(255,255,255,.08);
-    padding:10px 12px;
-    border-radius:12px;
-    font-size:.85rem;
-    transition:.2s;
-}
+            ym(109721130, 'init', {
+                ssr: true,
+                webvisor: true,
+                clickmap: true,
+                ecommerce: "dataLayer",
+                referrer: document.referrer,
+                url: location.href,
+                accurateTrackBounce: true,
+                trackLinks: true
+            });
+        </script>
+        <!-- /Yandex.Metrika counter -->
+    </head>
 
-.btn:hover{
-    background:rgba(0,212,255,.15);
-    transform:translateY(-2px);
-}
-    
-/* FOOTER */
-.footer{
-    text-align:center;
-    margin-top:80px;
-    color:#64748b;
-}
+    <body>
+        <noscript>
+        <div>
+            <img src="https://mc.yandex.ru/watch/109721130" style="position:absolute; left:-9999px;" alt="" />
+        </div>
+        </noscript>
 
-</style>
-</head>
-
-<body>
-
-<div class="bg">
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
-</div>
-
-<div class="content">
-
-<!-- HERO -->
-<section class="hero">
-
-    <div class="card">
-
-        <div class="avatar">I</div>
-
-        <h1>1r1shmann</h1>
-
-        <div class="subtitle">
-            Systems Engineer • PHP / Yii / Yii2 • Enterprise & Government Systems
+        <div class="bg">
+            <div class="orb orb1"></div>
+            <div class="orb orb2"></div>
         </div>
 
-        <div class="tagline">
-            $ designing backend systems that survive production load
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CASE STUDY 1 -->
-<section class="section">
-
-    <div class="title">Pinned Systems</div>
-
-    <div class="case">
-
-        <div class="case-title">Medical Information System (МИС)</div>
-        <div class="case-sub">Enterprise healthcare platform (hospitals + clinics)</div>
-
-        <div class="flow">
-User → Doctor UI → PHP Backend (Yii2) → DB (PostgreSQL)
-        ↓
-Prescription workflow → RBAC validation → Document generation (PDF/DOCX)
-        ↓
-SOAP/REST → Federal medical registry (СЭМД exchange)
-        </div>
-
-        <div class="badges">
-            <div class="badge">Yii2</div>
-            <div class="badge">SOAP</div>
-            <div class="badge">PostgreSQL</div>
-            <div class="badge">RBAC</div>
-        </div>
-
-        <div class="impact">
-            ✔ Real-world healthcare workflow automation<br>
-            ✔ Government integration via SOAP APIs
-        </div>
-
-    </div>
-
-    <div class="case">
-
-        <div class="case-title">Digital Signature Platform (CryptoPro / GOST)</div>
-        <div class="case-sub">Secure document signing + validation system</div>
-
-        <div class="flow">
-File/Data → PHP Backend → CLI CryptoPro (Windows/Linux)
-    ↓
-Signature generation → DB storage
-    ↓
-Validation pipeline → certificate parsing → audit log
-    ↓
-Result → medical system integration (СЭМД)
-        </div>
-
-        <div class="badges">
-            <div class="badge">CryptoPro</div>
-            <div class="badge">GOST</div>
-            <div class="badge">CLI integration</div>
-        </div>
-
-        <div class="impact">
-            ✔ Electronic signature lifecycle implementation<br>
-            ✔ Cross-platform CLI execution pipeline
-        </div>
-
-    </div>
-
-    <div class="case">
-
-        <div class="case-title">Integration & Processing Engine</div>
-        <div class="case-sub">Batch + API + cron-based backend processing</div>
-
-        <div class="flow">
-DB queue (table locking) → cron worker → batch processing (50 rows)
-    ↓
-External SOAP/REST systems → XML exchange → response parsing
-    ↓
-Status update → DB commit
-        </div>
-
-        <div class="badges">
-            <div class="badge">Cron</div>
-            <div class="badge">SOAP</div>
-            <div class="badge">XML</div>
-            <div class="badge">SQL optimization</div>
-        </div>
-
-        <div class="impact">
-            ✔ Queue-like processing without message broker<br>
-            ✔ Integration layer for external enterprise systems
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ENGINEERING PROFILE -->
-<section class="section">
-
-    <div class="title">Engineering Profile</div>
-
-    <div class="case">
-
-        <div class="case-title">Core Expertise</div>
-
-        <div class="flow">
-- Legacy PHP systems (Yii / Yii2)
-- Monolithic enterprise architectures
-- SQL optimization (indexes, explain plans)
-- RBAC & access control systems
-- Document generation pipelines (PDF / DOCX)
-- Linux server deployment (LEMP / LAMP)
-- Manual deployment without containerization
-- Integration-heavy backend systems (SOAP / REST)
-        </div>
-
-    </div>
-
-</section>
-
-<!-- PROJECTS -->
-<section class="section">
-
-    <div class="title">GitHub Projects</div>
-
-    <div class="grid" id="repos"></div>
-
-</section>
-
-<div class="footer">
-    © 2026 • Systems Engineering Portfolio
-</div>
-
-</div>
-
-<script>
-
-fetch("https://api.github.com/users/1r1shmann/repos")
-.then(r => r.json())
-.then(repos => {
-
-    const container = document.getElementById("repos");
-
-    repos
-        .filter(r => !r.fork)
-        .sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at))
-        .forEach(repo => {
-
-            const hasPages = repo.has_pages; 
-            const pagesUrl = `https://1r1shmann.github.io/${repo.name}`;
-
-            const div = document.createElement("div");
-            div.className = "project";
-
-            div.innerHTML = `
-
-                <div class="project-title">${repo.name}</div>
-
-                <div class="meta">
-                    ⭐ ${repo.stargazers_count}
-                    • updated ${new Date(repo.updated_at).toLocaleDateString()}
+        <div class="content">
+            <!-- HERO -->
+            <section class="hero">
+                <div class="card">
+                    <div class="avatar">I</div>
+                    <h1>1r1shmann</h1>
+                    <div class="subtitle">
+                        Systems Engineer • PHP / Yii / Yii2 • Enterprise & Government Systems
+                    </div>
+                    <div class="tagline">
+                        $ designing backend systems that survive production load
+                    </div>
                 </div>
+            </section>
 
-                <div class="links" style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
-
-                    <a class="btn" target="_blank"
-                       href="${repo.html_url}">
-                        GitHub Repo
-                    </a>
-
-                    ${hasPages ? `
-                    <a class="btn" target="_blank"
-                       href="${pagesUrl}">
-                        Live Pages
-                    </a>
-                    ` : ``}
-
+            <!-- CASE STUDY 1 -->
+            <section class="section">
+                <div class="title">Pinned Systems</div>
+                <div class="case">
+                    <div class="case-title">Medical Information System (МИС)</div>
+                    <div class="case-sub">Enterprise healthcare platform (hospitals + clinics)</div>
+                    <div class="flow">
+                        User → Doctor UI → PHP Backend (Yii2) → DB (PostgreSQL)
+                        ↓
+                        Prescription workflow → RBAC validation → Document generation (PDF/DOCX)
+                        ↓
+                        SOAP/REST → Federal medical registry (СЭМД exchange)
+                    </div>
+                    <div class="badges">
+                        <div class="badge">Yii2</div>
+                        <div class="badge">SOAP</div>
+                        <div class="badge">PostgreSQL</div>
+                        <div class="badge">RBAC</div>
+                    </div>
+                    <div class="impact">
+                        ✔ Real-world healthcare workflow automation<br>
+                        ✔ Government integration via SOAP APIs
+                    </div>
                 </div>
+                <div class="case">
+                    <div class="case-title">Digital Signature Platform (CryptoPro / GOST)</div>
+                    <div class="case-sub">Secure document signing + validation system</div>
+                    <div class="flow">
+                        File/Data → PHP Backend → CLI CryptoPro (Windows/Linux)
+                        ↓
+                        Signature generation → DB storage
+                        ↓
+                        Validation pipeline → certificate parsing → audit log
+                        ↓
+                        Result → medical system integration (СЭМД)
+                    </div>
+                    <div class="badges">
+                        <div class="badge">CryptoPro</div>
+                        <div class="badge">GOST</div>
+                        <div class="badge">CLI integration</div>
+                    </div>
+                    <div class="impact">
+                        ✔ Electronic signature lifecycle implementation<br>
+                        ✔ Cross-platform CLI execution pipeline
+                    </div>
+                </div>
+                <div class="case">
+                    <div class="case-title">Integration & Processing Engine</div>
+                    <div class="case-sub">Batch + API + cron-based backend processing</div>
+                    <div class="flow">
+                        DB queue (table locking) → cron worker → batch processing (50 rows)
+                        ↓
+                        External SOAP/REST systems → XML exchange → response parsing
+                        ↓
+                        Status update → DB commit
+                    </div>
+                    <div class="badges">
+                        <div class="badge">Cron</div>
+                        <div class="badge">SOAP</div>
+                        <div class="badge">XML</div>
+                        <div class="badge">SQL optimization</div>
+                    </div>
+                    <div class="impact">
+                        ✔ Queue-like processing without message broker<br>
+                        ✔ Integration layer for external enterprise systems
+                    </div>
+                </div>
+            </section>
 
-            `;
+            <!-- ENGINEERING PROFILE -->
+            <section class="section">
+                <div class="title">Engineering Profile</div>
+                <div class="case">
+                    <div class="case-title">Core Expertise</div>
+                    <div class="flow">
+                        - Legacy PHP systems (Yii / Yii2)
+                        - Monolithic enterprise architectures
+                        - SQL optimization (indexes, explain plans)
+                        - RBAC & access control systems
+                        - Document generation pipelines (PDF / DOCX)
+                        - Linux server deployment (LEMP / LAMP)
+                        - Manual deployment without containerization
+                        - Integration-heavy backend systems (SOAP / REST)
+                    </div>
+                </div>
+            </section>
 
-            container.appendChild(div);
+            <!-- PROJECTS -->
+            <section class="section">
+                <div class="title">GitHub Projects</div>
+                <div class="grid" id="repos"></div>
+            </section>
 
-        });
+            <div class="footer">
+                © 2026 • Systems Engineering Portfolio
+            </div>
+        </div>
 
-});
+        <script>
+            fetch("https://api.github.com/users/1r1shmann/repos").then(r => r.json()).then(repos => {
+                const container = document.getElementById("repos");
+                repos.filter(r => !r.fork).sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at)).forEach(repo => {
+                    const hasPages = repo.has_pages;
+                    const pagesUrl = `https://1r1shmann.github.io/${repo.name}`;
+                    const div = document.createElement("div");
+                    div.className = "project";
+                    div.innerHTML = `
+                        <div class="project-title">${repo.name}</div>
+                        <div class="meta">
+                            ⭐ ${repo.stargazers_count}
+                            • updated ${new Date(repo.updated_at).toLocaleDateString()}
+                        </div>
+                        <div class="links" style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+                            <a class="btn" target="_blank"
+                               href="${repo.html_url}">
+                                GitHub Repo
+                            </a>
 
-</script>
-
-</body>
+                            ${hasPages ? `
+                            <a class="btn" target="_blank"
+                               href="${pagesUrl}">
+                                Live Pages
+                            </a>
+                            ` : ``}
+                        </div>
+                    `;
+                    container.appendChild(div);
+                });
+            });
+        </script>
+    </body>
 </html>
