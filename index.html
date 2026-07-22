@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>1r1shmann — PHP Backend Developer & Systems Engineer</title>
 
         <!-- Primary Meta Tags -->
-        <meta name="description" content="PHP Backend Developer and Systems Engineer specializing in Yii2, enterprise backend systems, healthcare IT, REST and SOAP APIs, PostgreSQL, Linux, and government system integration.">
-        <meta name="keywords" content="systems engineer, PHP developer, Yii2, backend developer, enterprise systems, healthcare IT, medical information system, SOAP API, PostgreSQL, RBAC, CryptoPro, GOST, digital signature, document generation, Linux server, LEMP stack">
+        <meta name="description" content="1r1shmann - PHP Backend Developer and Systems Engineer specializing in Yii2, enterprise backend systems, healthcare IT, REST and SOAP APIs, PostgreSQL, Linux, and government system integration.">
+        <meta name="keywords" content="1r1shmann, systems engineer, PHP developer, Yii2, backend developer, enterprise systems, healthcare IT, medical information system, SOAP API, PostgreSQL, RBAC, CryptoPro, GOST, digital signature, document generation, Linux server, LEMP stack">
         <meta name="author" content="1r1shmann">
         <meta name="robots" content="index, follow">
 
         <!-- Russian Meta Tags -->
-        <meta name="description" lang="ru" content="PHP Backend-разработчик и системный инженер, специализирующийся на Yii2, корпоративных backend-системах, медицинских информационных системах, REST и SOAP API, PostgreSQL, Linux и интеграции с государственными информационными системами.">
-        <meta name="keywords" lang="ru" content="системный инженер, PHP разработчик, Yii2, бэкенд разработчик, корпоративные системы, медицинские информационные системы, МИС, SOAP API, PostgreSQL, RBAC, КриптоПро, ГОСТ, электронная подпись, генерация документов, Linux сервер, LEMP стек">
+        <meta name="description" lang="ru" content="1r1shmann - PHP Backend-разработчик и системный инженер, специализирующийся на Yii2, корпоративных backend-системах, медицинских информационных системах, REST и SOAP API, PostgreSQL, Linux и интеграции с государственными информационными системами.">
+        <meta name="keywords" lang="ru" content="1r1shmann, системный инженер, PHP разработчик, Yii2, бэкенд разработчик, корпоративные системы, медицинские информационные системы, МИС, SOAP API, PostgreSQL, RBAC, КриптоПро, ГОСТ, электронная подпись, генерация документов, Linux сервер, LEMP стек">
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website">
+        <meta property="og:site_name" content="1r1shmann">
         <meta property="og:url" content="https://1r1shmann.github.io/">
         <meta property="og:title" content="1r1shmann — PHP Backend Developer & Systems Engineer">
-        <meta property="og:description" content="PHP Backend Developer & Systems Engineer. Системный инженер: корпоративные backend-системы, медицинские информационные системы (МИС), REST и SOAP API, PostgreSQL, Linux и интеграция с государственными информационными системами.">
+        <meta property="og:description" content="1r1shmann - PHP Backend Developer & Systems Engineer. Системный инженер: корпоративные backend-системы, медицинские информационные системы (МИС), REST и SOAP API, PostgreSQL, Linux и интеграция с государственными информационными системами.">
         <meta property="og:image" content="https://1r1shmann.github.io/assets/og-image.png">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
@@ -30,7 +31,7 @@
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:url" content="https://1r1shmann.github.io/">
         <meta name="twitter:title" content="1r1shmann — PHP Backend Developer & Systems Engineer">
-        <meta name="twitter:description" content="PHP Backend Developer & Systems Engineer. Системный инженер: корпоративные backend-системы, медицинские информационные системы (МИС), REST и SOAP API, PostgreSQL, Linux и интеграция с государственными информационными системами.">
+        <meta name="twitter:description" content="1r1shmann - PHP Backend Developer & Systems Engineer. Системный инженер: корпоративные backend-системы, медицинские информационные системы (МИС), REST и SOAP API, PostgreSQL, Linux и интеграция с государственными информационными системами.">
         <meta name="twitter:image" content="https://1r1shmann.github.io/assets/og-image.png">
 
         <!-- Canonical URL -->
@@ -110,6 +111,13 @@
             .hero{
                 max-width:950px;
                 margin:auto;
+            }
+
+            .intro{
+                max-width:700px;
+                margin:20px auto 0;
+                color:var(--muted);
+                line-height:1.6;
             }
 
             .card{
@@ -319,19 +327,24 @@
                     <div class="avatar">I</div>
                     <h1>1r1shmann</h1>
                     <div class="subtitle">
-                        Systems Engineer • PHP / Yii / Yii2 • Enterprise & Government Systems
+                        PHP Backend Developer • Systems Engineer • Yii2 • Enterprise & Government Systems
                     </div>
+
+                    <p class="intro">
+                        I design and build backend systems for real-world business processes, integrations, and production environments. I work with existing enterprise and legacy systems, improve their architecture and performance, and build reliable integrations between applications, databases, and external services.
+                    </p>
+
                     <div class="tagline">
-                        $ designing backend systems that survive production load
+                        $ "The function of good software is to make the complex appear to be simple." — Grady Booch
                     </div>
                 </div>
             </section>
 
             <!-- CASE STUDY 1 -->
             <section class="section">
-                <div class="title">Pinned Systems</div>
+                <h2 class="title">Pinned Systems</h2>
                 <div class="case">
-                    <div class="case-title">Medical Information System (МИС)</div>
+                    <h3 class="case-title">Medical Information System (МИС)</h3>
                     <div class="case-sub">Enterprise healthcare platform (hospitals + clinics)</div>
                     <div class="flow">
                         User → Doctor UI → PHP Backend (Yii2) → DB (PostgreSQL)
@@ -352,7 +365,7 @@
                     </div>
                 </div>
                 <div class="case">
-                    <div class="case-title">Digital Signature Platform (CryptoPro / GOST)</div>
+                    <h3 class="case-title">Digital Signature Platform (CryptoPro / GOST)</h3>
                     <div class="case-sub">Secure document signing + validation system</div>
                     <div class="flow">
                         File/Data → PHP Backend → CLI CryptoPro (Windows/Linux)
@@ -374,7 +387,7 @@
                     </div>
                 </div>
                 <div class="case">
-                    <div class="case-title">Integration & Processing Engine</div>
+                    <h3 class="case-title">Integration & Processing Engine</h3>
                     <div class="case-sub">Batch + API + cron-based backend processing</div>
                     <div class="flow">
                         DB queue (table locking) → cron worker → batch processing (50 rows)
@@ -398,9 +411,9 @@
 
             <!-- ENGINEERING PROFILE -->
             <section class="section">
-                <div class="title">Engineering Profile</div>
+                <h2 class="title">Engineering Profile</h2>
                 <div class="case">
-                    <div class="case-title">Core Expertise</div>
+                    <h3 class="case-title">Core Expertise</h3>
                     <div class="flow">
                         - Legacy PHP systems (Yii / Yii2)
                         - Monolithic enterprise architectures
@@ -416,7 +429,7 @@
 
             <!-- PROJECTS -->
             <section class="section">
-                <div class="title">GitHub Projects</div>
+                <h2 class="title">GitHub Projects</h2>
                 <div class="grid" id="repos"></div>
             </section>
 
