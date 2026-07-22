@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Main portfolio -->
+    <url>
+        <loc>https://1r1shmann.github.io/</loc>
+        <lastmod>2026-07-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- 1r1shmann.github.io -->
+    <url>
+        <loc>https://1r1shmann.github.io/1r1shmann.github.io</loc>
+        <lastmod>2026-07-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- wedding -->
+    <url>
+        <loc>https://1r1shmann.github.io/wedding</loc>
+        <lastmod>2026-07-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- js-datamatrix-scanner -->
+    <url>
+        <loc>https://1r1shmann.github.io/js-datamatrix-scanner</loc>
+        <lastmod>2026-07-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- fb2onlineconst -->
+    <url>
+        <loc>https://1r1shmann.github.io/fb2onlineconst</loc>
+        <lastmod>2026-07-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- js-auth-cookies -->
+    <url>
+        <loc>https://1r1shmann.github.io/js-auth-cookies</loc>
+        <lastmod>2026-07-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- animated-8march-card -->
+    <url>
+        <loc>https://1r1shmann.github.io/animated-8march-card</loc>
+        <lastmod>2026-07-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>
+
