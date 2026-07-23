@@ -5,14 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>1r1shmann — PHP Backend Developer & Systems Engineer</title>
 
+        <!-- Search Engine Verification -->
+        <meta name="google-site-verification" content="aB0tYpvnJ71qCvVy0m5bKTrWetbcLrCMPEEs84RIp-0" />
+        <meta name="yandex-verification" content="790bacfebec89116" />
+        <meta name="msvalidate.01" content="900110664D60EF512937005955515332" />
+
         <!-- Primary Meta Tags -->
-        <meta name="description" content="1r1shmann - PHP Backend Developer and Systems Engineer specializing in Yii2, enterprise backend systems, healthcare IT, REST and SOAP APIs, PostgreSQL, Linux, and government system integration.">
+        <meta name="description" content="1r1shmann — PHP Backend Developer & Systems Engineer. Yii2, enterprise-системы, медицинские информационные системы (МИС), REST/SOAP, PostgreSQL и Linux.">
         <meta name="keywords" content="1r1shmann, systems engineer, PHP developer, Yii2, backend developer, enterprise systems, healthcare IT, medical information system, SOAP API, PostgreSQL, RBAC, CryptoPro, GOST, digital signature, document generation, Linux server, LEMP stack">
         <meta name="author" content="1r1shmann">
         <meta name="robots" content="index, follow">
 
         <!-- Russian Meta Tags -->
-        <meta name="description" lang="ru" content="1r1shmann - PHP Backend-разработчик и системный инженер, специализирующийся на Yii2, корпоративных backend-системах, медицинских информационных системах, REST и SOAP API, PostgreSQL, Linux и интеграции с государственными информационными системами.">
         <meta name="keywords" lang="ru" content="1r1shmann, системный инженер, PHP разработчик, Yii2, бэкенд разработчик, корпоративные системы, медицинские информационные системы, МИС, SOAP API, PostgreSQL, RBAC, КриптоПро, ГОСТ, электронная подпись, генерация документов, Linux сервер, LEMP стек">
 
         <!-- Open Graph / Facebook -->
@@ -21,7 +25,7 @@
         <meta property="og:url" content="https://1r1shmann.github.io/">
         <meta property="og:title" content="1r1shmann — PHP Backend Developer & Systems Engineer">
         <meta property="og:description" content="1r1shmann - PHP Backend Developer & Systems Engineer. Системный инженер: корпоративные backend-системы, медицинские информационные системы (МИС), REST и SOAP API, PostgreSQL, Linux и интеграция с государственными информационными системами.">
-        <meta property="og:image" content="https://1r1shmann.github.io/assets/og-image.png">
+        <meta property="og:image" content="https://1r1shmann.github.io/assets/images/og-image.png">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
         <meta property="og:locale" content="en_US">
@@ -32,251 +36,14 @@
         <meta name="twitter:url" content="https://1r1shmann.github.io/">
         <meta name="twitter:title" content="1r1shmann — PHP Backend Developer & Systems Engineer">
         <meta name="twitter:description" content="1r1shmann - PHP Backend Developer & Systems Engineer. Системный инженер: корпоративные backend-системы, медицинские информационные системы (МИС), REST и SOAP API, PostgreSQL, Linux и интеграция с государственными информационными системами.">
-        <meta name="twitter:image" content="https://1r1shmann.github.io/assets/og-image.png">
+        <meta name="twitter:image" content="https://1r1shmann.github.io/assets/images/og-image.png">
 
         <!-- Canonical URL -->
         <link rel="canonical" href="https://1r1shmann.github.io/">
 
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="/assets/favicon.png">
+        <link rel="icon" type="image/png" href="/assets/images/favicon.png">
 
-        <style>
-            :root{
-                --bg:#050816;
-                --card:rgba(255,255,255,.06);
-                --border:rgba(255,255,255,.10);
-                --text:#ffffff;
-                --muted:#94a3b8;
-                --accent:#00d4ff;
-                --accent2:#7c3aed;
-            }
-            *{
-                margin:0;
-                padding:0;
-                box-sizing:border-box;
-            }
-            body{
-                background:var(--bg);
-                color:var(--text);
-                font-family:system-ui, sans-serif;
-                overflow-x:hidden;
-            }
-            /* background */
-            .bg{
-                position:fixed;
-                inset:0;
-                z-index:0;
-            }
-
-            .orb{
-                position:absolute;
-                width:550px;
-                height:550px;
-                filter:blur(140px);
-                opacity:.22;
-                border-radius:50%;
-                animation:float 14s ease-in-out infinite;
-            }
-
-            .orb1{
-                background:var(--accent);
-                top:-160px;
-                left:-160px;
-            }
-
-            .orb2{
-                background:var(--accent2);
-                bottom:-160px;
-                right:-160px;
-                animation-delay:-7s;
-            }
-
-            @keyframes float{
-                0%,100%{
-                    transform:translate(0,0);
-                }
-                50%{
-                    transform:translate(40px,-30px);
-                }
-            }
-
-            /* layout */
-            .content{
-                position:relative;
-                z-index:2;
-                padding:60px 20px 100px;
-            }
-
-            /* HERO */
-            .hero{
-                max-width:950px;
-                margin:auto;
-            }
-
-            .intro{
-                max-width:700px;
-                margin:20px auto 0;
-                color:var(--muted);
-                line-height:1.6;
-            }
-
-            .card{
-                background:var(--card);
-                border:1px solid var(--border);
-                border-radius:28px;
-                padding:60px 30px;
-                text-align:center;
-                backdrop-filter:blur(18px);
-            }
-
-            .avatar{
-                width:120px;
-                height:120px;
-                margin:auto;
-                border-radius:50%;
-                background:linear-gradient(135deg,var(--accent),var(--accent2));
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                font-size:48px;
-                font-weight:800;
-            }
-
-            h1{
-                margin-top:18px;
-                font-size:3rem;
-            }
-
-            .subtitle{
-                margin-top:10px;
-                color:var(--muted);
-                font-size:1.1rem;
-            }
-
-            .tagline{
-                margin-top:25px;
-                font-family:monospace;
-                color:var(--accent);
-            }
-
-            /* SECTIONS */
-            .section{
-                max-width:1100px;
-                margin:70px auto 0;
-            }
-
-            .title{
-                text-align:center;
-                font-size:2rem;
-                margin-bottom:25px;
-            }
-
-            /* CASE CARD */
-            .case{
-                background:rgba(255,255,255,.04);
-                border:1px solid rgba(255,255,255,.08);
-                border-radius:22px;
-                padding:25px;
-                margin-bottom:18px;
-            }
-
-            .case-title{
-                font-size:1.3rem;
-                color:var(--accent);
-                font-weight:700;
-            }
-
-            .case-sub{
-                color:var(--muted);
-                margin-top:6px;
-            }
-
-            /* FLOW */
-            .flow{
-                margin-top:15px;
-                padding:15px;
-                border-left:2px solid var(--accent);
-                color:#cbd5e1;
-                font-family:monospace;
-                line-height:1.6;
-            }
-
-            /* BADGES */
-            .badges{
-                display:flex;
-                flex-wrap:wrap;
-                gap:8px;
-                margin-top:12px;
-            }
-
-            .badge{
-                background:rgba(255,255,255,.08);
-                padding:6px 10px;
-                border-radius:999px;
-                font-size:.8rem;
-            }
-
-            /* IMPACT */
-            .impact{
-                margin-top:12px;
-                color:#86efac;
-                font-size:.9rem;
-            }
-
-            /* PROJECTS */
-            .grid{
-                display:grid;
-                grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-                gap:18px;
-            }
-
-            .project{
-                background:rgba(255,255,255,.05);
-                border:1px solid rgba(255,255,255,.08);
-                border-radius:18px;
-                padding:20px;
-            }
-
-            .project-title{
-                color:var(--accent);
-                font-weight:700;
-            }
-
-            .meta{
-                margin-top:10px;
-                font-size:.8rem;
-                color:#64748b;
-            }
-
-            .links{
-                display:flex;
-                gap:10px;
-                flex-wrap:wrap;
-            }
-
-            .btn{
-                text-decoration:none;
-                color:white;
-                background:rgba(255,255,255,.08);
-                padding:10px 12px;
-                border-radius:12px;
-                font-size:.85rem;
-                transition:.2s;
-            }
-
-            .btn:hover{
-                background:rgba(0,212,255,.15);
-                transform:translateY(-2px);
-            }
-
-            /* FOOTER */
-            .footer{
-                text-align:center;
-                margin-top:80px;
-                color:#64748b;
-            }
-
-        </style>
         <!-- Yandex.Metrika counter -->
         <script type="text/javascript">
             (function (m, e, t, r, i, k, a) {
@@ -306,9 +73,9 @@
             });
         </script>
         <!-- /Yandex.Metrika counter -->
-        <meta name="google-site-verification" content="aB0tYpvnJ71qCvVy0m5bKTrWetbcLrCMPEEs84RIp-0" />
-        <meta name="yandex-verification" content="790bacfebec89116" />
-        <meta name="msvalidate.01" content="900110664D60EF512937005955515332" />
+
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="/assets/css/style.css">
     </head>
 
     <body>
